@@ -6,9 +6,8 @@ import { IoMdMenu } from "react-icons/io";
 const Nav = () => {
 
   let [open, setopen] = useState(false);
-  console.log(open)
   return (
-    <div className="w-full h-20 bg-transparent fixed top-0 text-textNormal">
+    <div className="w-full h-20 bg-transparent fixed top-0 text-textNormal" >
       <nav className="md:flex justify-center md:justify-between w-full h-full items-center p-4 md:p-8 pt-5">
         <div className="icons">
           <img src={logo} alt="icons not found" />

@@ -86,8 +86,8 @@ const About = () => {
       <div>
         <Slider {...settings}>
         {
-          data.map((item) =>
-            <div className={`bg-sliderBg ${item.class} flex flex-col px-[24px] py-5 mt-10 text-light rounded-lg`}>
+          data.map((item,index) =>
+            <div key={index} className={`bg-sliderBg ${item.class} flex flex-col px-[24px] py-5 mt-10 text-light rounded-lg`}>
             <div className="icon_slider mb-3">
               <span><img src={item.icon} width={"30px"} height={"30px"} alt="not found" /></span>
             </div>
