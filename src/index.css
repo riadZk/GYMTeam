@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Poppins:wght@300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+   font-family: 'Lato', sans-serif;
+   font-family: 'Poppins', sans-serif;
+}
+
+.underline-hover::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    transition: width 0.3s ease-in;
+    margin-top: 2px;
+  }
+.underline-hover:hover::after {
+    width: 100%;
+}
+.fit{
+    color: rgba(255, 255, 255, 0.11);
+    font-size: 109px;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    display: flex;
+    height: 170px;
+    align-items: flex-start;
+    gap: 10px;
+}
+.fitnes{
+    transform: rotate(-90deg);
+    position: absolute;
+    left: -220px;
+    top: 180px;
+    z-index: 0;
+}
+.program{
+    font-size: 90px;
+    position: absolute;
+    left: -49px;
+    top: -52px;
+    z-index: 0;
+}
+.imgMain{
+    position: absolute;
+    z-index: 100;
+    clip: rect(-68px,412px,551px,-146px);
+}
+.center{
+    background: #000;
+}
+.slick-slide > div{
+    margin: 0 10px;
+}
+.Unleash{
+    background-image: url('./assets/Rectangle.png');
+    background-position: center;
+    background-size: cover;
+}
