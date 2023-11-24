@@ -8,7 +8,7 @@ export const Member = () => {
         <h1 className="text-4xl font-bold pt-2">
           What Our Member <br /> Say About Us ?
         </h1>
-        <p className="fit program">Testimonial</p>
+        <p className="fit program ">Testimonial</p>
       </div>
       <div className="flex justify-end">
         <div className="w-[600px] bg-sliderBg rounded-lg">
