@@ -84,18 +84,29 @@ export const Pricing = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 place-items-center gap-5 lg:grid-cols-4 my-10">
-        {DataPricing.map((item,index) => (
+        {DataPricing.map((item, index) => (
           <div
-          key={index}
-            className={`Basic_Package p-3 my-3 rounded-lg w-[80%] ${
+            key={index}
+            className={`Basic_Package p-3 my-3 w-[80%] ${
               item.bestOfre ? "bg-link transforPrice" : "bg-sliderBg"
             }`}
           >
             <p className={`${item.bestOfre ? "text-white" : "text-link"}`}>
               {item.category}
             </p>
-            <p className={`${item.bestOfre ? 'block transforPricePARA bg-white w-52 pl-4 h-14':'hidden'}`}>best Offre</p>
-            <p className="price pt-4 text-4xl font-bold"> ${pricing ? item.price * 11 : item.price} </p>
+            <p
+              className={`${
+                item.bestOfre
+                  ? "block transforPricePARA bg-white w-52 pl-4 h-14"
+                  : "hidden"
+              }`}
+            >
+              best Offre
+            </p>
+            <p className="price pt-4 text-4xl font-bold">
+              {" "}
+              ${pricing ? item.price * 11 : item.price}{" "}
+            </p>
             <p
               className={`font-[500] text-[14px] mt-2 ${
                 item.bestOfre ? "text-white" : "text-gray-400 "
@@ -105,7 +116,7 @@ export const Pricing = () => {
             </p>
             <div className="my-5">
               <ul className="space-y-1 list-inside text-[#E1E1E1]">
-                {item.list.map((l,i) => (
+                {item.list.map((l, i) => (
                   <li key={i} className="flex gap-1">
                     <img src={valid} alt="" className="pt-1 w-5" />
                     <span>{l}</span>

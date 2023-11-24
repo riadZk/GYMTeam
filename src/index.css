@@ -8,7 +8,10 @@ body{
    font-family: 'Lato', sans-serif;
    font-family: 'Poppins', sans-serif;
 }
-
+.header{
+    background: #000000ab;
+    transition: ease-in 1s;
+}
 .underline-hover::after {
     content: "";
     display: block;
@@ -40,9 +43,9 @@ body{
     z-index: 0;
 }
 .program{
-    font-size: 90px;
+    font-size: 80px;
     position: absolute;
-    left: -49px;
+    left: -59px;
     top: -52px;
     z-index: 0;
 }
@@ -73,33 +76,33 @@ body{
     border-radius: 10px;
   }
   
-  .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      width: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .swiper-slide img {
-        display: block;
-        width: px;
-        height: 100%;
-        object-fit: cover;
-    }
-    
-    .imgeSlide{
-        width: 100%;
-        height: 400px !important;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    .swiper-pagination-bullet{
-        background-color: #fff !important;
-    } 
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.imgeSlide{
+    width: 100%;
+    height: 400px !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.swiper-pagination-bullet{
+    background-color: #fff !important;  
+} 
 .swiper-pagination-bullet-active{
     background-color: #097FD9 !important;
 }
@@ -123,4 +126,21 @@ body{
 }
 .slick-dots > li > button:before{
     color: #fff !important;
+}
+/* .slick-arrow {
+    display: none !important;
+} */
+.swiper-pagination-bullet{
+    display: none;
+    width: 5px !important;
+    height: 5px !important;
+}
+.swiper-pagination-bullet-active{
+    background-color: rgb(190, 183, 183) !important;
+}
+.slick-dots {
+    bottom: -51px !important
+}
+.Basic_Package{
+    border-radius: 10px 0 10px 0;
 }

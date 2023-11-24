@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef,useEffect } from "react";
 import logo from "../../assets/logo.svg";
 import { MdClose } from "react-icons/md";
 import { IoMdMenu } from "react-icons/io";
@@ -6,8 +6,26 @@ import { IoMdMenu } from "react-icons/io";
 const Nav = () => {
 
   let [open, setopen] = useState(false);
+
+  const headerRef = useRef(null);
+  const stickyHeader = () => {
+      if (headerRef.current) {
+          if (window.scrollY > 80) {
+              headerRef.current.classList.add('header');
+          } else {
+              headerRef.current.classList.remove('header');
+          }
+      }
+  };
+  useEffect(() => {
+      stickyHeader(); 
+      window.addEventListener('scroll', stickyHeader);
+      return () => {
+          window.removeEventListener('scroll', stickyHeader);
+      };
+  }, []);
   return (
-    <div className="w-full h-20 bg-transparent fixed top-0 text-textNormal" >
+    <div className="w-full h-20 bg-transparent fixed z-50 top-0 text-textNormal wind" ref={headerRef}>
       <nav className="md:flex justify-center md:justify-between w-full h-full items-center p-4 md:p-8 pt-5">
         <div className="icons">
           <img src={logo} alt="icons not found" />
@@ -66,3 +84,7 @@ const Nav = () => {
 };
 
 export default Nav;
+
+
+
+
