@@ -7,7 +7,7 @@ import icon2 from '../../assets/fatLose.svg'
 import icon3 from '../../assets/muscale.svg'
 import icon4 from '../../assets/nutritions.svg'
 
-const About = () => {
+const Program = () => {
   const [centerSlideIndex, setCenterSlideIndex] = useState(0);
   
   const settings = {
@@ -78,7 +78,7 @@ const About = () => {
     },
   ];
   return (
-    <div className="w-full h-screen bg-dark text-textNormal px-10 pt-20">
+    <div className="w-full h-auto bg-dark text-textNormal px-10 py-20">
       <div className="relative">
         <h1 className="font-bold text-[40px]"> Explore Our Program</h1>
         <p className="fit program">Program</p>
@@ -102,4 +102,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Program;

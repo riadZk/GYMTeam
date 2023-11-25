@@ -1,20 +1,23 @@
-import  Header  from "./components/header/Header";
-import Main from "./components/main/Main";
-import About from "./components/main/About";
-import Why from "./components/main/Why";
-import { Pricing } from "./components/main/Pricing";
-import Coaches from "./components/main/Coaches";
+import  {Header}  from "./components/header/Header";
+import {Main} from "./components/pages/Main";
+import {About} from "./components/pages/About";
+import { Pricing } from "./components/pages/Pricing";
+import {Coaches} from "./components/pages/Coaches";
+import {Program} from "./components/program/Program";
+import Contact from "./pages/Contact";
+import { Route ,Routes} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+      <Routes>
       <Header />
       <Main />
+      <Program />
       <About />
-      <Why />
       <Pricing />
       <Coaches />
-    </div>
+          <Route path="/contact" element={Contact} />
+      </Routes>
   );
 }
 

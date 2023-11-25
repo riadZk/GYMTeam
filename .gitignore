@@ -11,6 +11,7 @@
 # production
 /build
 .env
+comment.js
 
 # misc
 .DS_Store
