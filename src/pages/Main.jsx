@@ -1,11 +1,16 @@
 import React from "react";
 // import image from "../../assets/mainS.svg";
+import About from "./About";
+import { Pricing } from "./Pricing";
+import Coaches from "./Coaches";
+import Program from "../components/program/Program";
+
 import { FaPlay } from "react-icons/fa6";
 const Main = () => {
   return (
-    <div className="h-screen w-full text-light Unleash ">
+    <div className="h-auto w-full text-light" >
       <div
-        className="h-screen w-full"
+        className="h-screen w-full Unleash"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
       >
         <div className="flex flex-col justify-center items-start p-7 h-screen w-full md:w-1/2">
@@ -53,6 +58,10 @@ const Main = () => {
           </div>
         </div>
       </div>
+       <Program />
+        <About />
+        <Pricing />
+        <Coaches />
     </div>
   );
 };

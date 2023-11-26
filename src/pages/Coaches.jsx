@@ -3,13 +3,14 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import coach1 from "../../assets/coach1.webp";
-import coach2 from "../../assets/coach2.jpg";
-import coach3 from "../../assets/coach3.avif";
-import coach4 from "../../assets/coach4.jpg";
+import coach1 from "../assets/coach1.webp";
+import coach2 from "../assets/coach2.jpg";
+import coach3 from "../assets/coach3.avif";
+import coach4 from "../assets/coach4.jpg";
 
 import { LuMoveRight } from "react-icons/lu";
-import { Member } from "../members/Member";
+import { Member } from "../components/members/Member";
+
 const Coaches = () => {
   const settings = {
     dots: true,

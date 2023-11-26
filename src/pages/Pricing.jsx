@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import valid from "../../assets/valid.svg";
+import valid from "../assets/valid.svg";
 export const Pricing = () => {
   let [pricing, setPricing] = useState(false);
 
@@ -61,7 +61,7 @@ export const Pricing = () => {
     },
   ];
   return (
-    <div className="h-auto w-full bg-dark text-light p-6">
+    <div className="h-auto w-full bg-dark text-light p-6" id="pricing">
       <div className="flex flex-col gap-8 justify-center items-center">
         <h1 className="font-bold text-4xl">Our List Packages</h1>
         <div className="bg-light h-auto w-auto p-2 flex gap-1 flex-col sm:flex-row justify-center rounded-lg items-center">

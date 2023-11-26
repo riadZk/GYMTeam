@@ -151,3 +151,9 @@ body{
     .slick-active{
         background-color: #097FD9 !important;
 } */
+
+.contactPage{
+    background-image: url('./assets/Rectangle2.png');
+    background-position: center;
+    background-size: cover;
+}

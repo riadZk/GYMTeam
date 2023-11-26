@@ -1,16 +1,16 @@
 import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import imageSlideSalle from "../../assets/gym.jpg";
-import imageSlideSalle2 from "../../assets/gym2.jpg";
-import imageSlideSalle3 from "../../assets/gym3.png";
-import imageSlideSalle4 from "../../assets/gym4.jpg";
+import imageSlideSalle from "../assets/gym.jpg";
+import imageSlideSalle2 from "../assets/gym2.jpg";
+import imageSlideSalle3 from "../assets/gym3.png";
+import imageSlideSalle4 from "../assets/gym4.jpg";
 
-import trsnPhy1 from "../../assets/trsnPhy1.png"
-import trsnPhy2 from "../../assets/trsnPhy2.avif"
-import trsnPhy3 from "../../assets/trsnPhy3.png"
+import trsnPhy1 from "../assets/trsnPhy1.png"
+import trsnPhy2 from "../assets/trsnPhy2.avif"
+import trsnPhy3 from "../assets/trsnPhy3.png"
 
-import valid from "../../assets/valid2.svg";
+import valid from "../assets/valid2.svg";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -18,6 +18,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 
 const About = () => {
@@ -28,7 +29,7 @@ const About = () => {
         imageSlideSalle4,
       ];
   return (
-    <div className="h-auto w-full bg-dark text-light px-6">
+    <div className="h-auto w-full bg-dark text-light px-6" id="about">
           <div className="relative mb-16">
             <h1 className="text-4xl md:text-6xl font-bold pt-2">About Us</h1>
             <h1 className="fit program">About</h1>
@@ -109,8 +110,8 @@ const About = () => {
                 <button className="bg-link text-ligh font-bold rounded-md h-8 px-5">
                 Join now
                 </button>
-                <button className="bg-light shadow-para shadow text-dark font-bold rounded-md h-8 px-5">
-                Contact us
+                <button className="bg-light text-dark font-bold rounded-md h-8 px-5">
+                <Link to={"/contact"}>Contact us</Link>
                 </button>
               </div>
             </div>

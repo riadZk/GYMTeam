@@ -78,7 +78,7 @@ const Program = () => {
     },
   ];
   return (
-    <div className="w-full h-auto bg-dark text-textNormal px-10 py-20">
+    <div className="w-full h-auto bg-dark text-textNormal px-10 py-20" id="program">
       <div className="relative">
         <h1 className="font-bold text-[40px]"> Explore Our Program</h1>
         <p className="fit program">Program</p>
