@@ -12,6 +12,7 @@
 /build
 .env
 comment.js
+data
 
 # misc
 .DS_Store

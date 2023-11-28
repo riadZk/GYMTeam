@@ -97,16 +97,12 @@ const Nav = () => {
                   {link.name}
                 </Link>
               }
-                
               </li>
             ))}
           </ul>
           <div className="flex justify-center my-4 md:mt-0">
-            <button className="py-2 px-5 mr-5 font-[600] rounded-lg border-[.5px] border-textNormal">
-              Login
-            </button>
             <button className="py-2 px-5 rounded-lg font-[600] bg-link">
-              Register
+            Login
             </button>
           </div>
         </div>

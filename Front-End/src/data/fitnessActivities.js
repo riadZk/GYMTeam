@@ -39,17 +39,17 @@ const fitnessActivities = [
       description:
         "Cycling is for everyone! Whether you're an outdoor enthusiast or prefer the stationary bike, cycling offers a fantastic cardiovascular workout. It's an excellent choice for those aiming to:",
       benefits: [
-        "Burn calories and lose weight",
-        "Improve cardiovascular health",
-        "Strengthen leg muscles",
-        "Enjoy a low-impact exercise option",
+        'Burn calories and lose weight',
+        'Improve cardiovascular health',
+        'Strengthen leg muscles',
+        'Enjoy a low-impact exercise option',
       ],
       image: "./classes/cycling.jpg",
       instructors:
         "Our instructors will guide you through exhilarating rides, ensuring proper technique and maximizing the benefits of this dynamic workout.      ",
     },
     {
-      name: "Strength Training",
+      name: "Strength",
       title: "Build Power, Sculpt Muscles",
       body: "Unleash the strength within you with our Strength Training classes at GYMTeam. Designed for all fitness levels, these classes focus on building muscle, increasing bone density, and improving posture. Whether you're lifting weights for the first time or looking to take your strength to the next level, our dedicated trainers are here to support you on your journey. Visit your local World Gym and discover the transformative power of strength training.",
       description:
@@ -60,21 +60,21 @@ const fitnessActivities = [
         "Enhance overall body strength",
         "Improve bone density and joint health",
       ],
-      image: "./classes/hiit.jpg",
+      image: "./classes/strength.jpg",
       instructors:
         "Our trainers will guide you through proper lifting techniques, personalized to your fitness level, fostering a strong and resilient physique.",
     },
     {
       name: "HIIT",
       title: "Maximize Results, Minimize Time",
-      body: "Short on time? Try our High-Intensity Interval Training (HIIT) classes at GYMTeam. These fast-paced, intense workouts are perfect for burning calories, boosting metabolism, and improving cardiovascular health. Our skilled instructors will guide you through a series of challenging exercises, making every minute count. Elevate your fitness routine with HIIT—visit your local World Gym and experience the energy and results firsthand!",
+      body: "Short on time? Try our High-Intensity Interval Training HIIT classes at GYMTeam. These fast-paced, intense workouts are perfect for burning calories, boosting metabolism, and improving cardiovascular health. Our skilled instructors will guide you through a series of challenging exercises, making every minute count. Elevate your fitness routine with HIIT—visit your local World Gym and experience the energy and results firsthand!",
       description:
         "HIIT is for everyone! Whether you're short on time or love an intense workout, High-Intensity Interval Training is a game-changer. It's ideal for those aiming to:",
       benefits: [
         "Burn maximum calories in a short time",
         "Improve cardiovascular fitness",
         "Boost metabolism for post-workout calorie burn",
-        "Experience a dynamic and varied exercise routine",
+        "Experience a dynamic and varied exercise routine"
       ],
       image: "./classes/hiit.jpg",
       instructors:
@@ -90,7 +90,7 @@ const fitnessActivities = [
         "Burn calories through dance and movement",
         "Improve coordination and rhythm",
         "Enjoy a lively and social exercise environment",
-        "Enhance mood and reduce stress",
+        "Enhance mood and reduce stress"
       ],
       image: "./classes/zumba.jpg",
       instructors:
@@ -106,7 +106,7 @@ const fitnessActivities = [
         "Boost overall cardiovascular fitness",
         "Burn calories and promote weight loss",
         "Enhance agility, coordination, and reflexes",
-        "Build strength and tone muscles",
+        "Build strength and tone muscles"
       ],
       image: "./classes/boxing.jpg",
       instructors:

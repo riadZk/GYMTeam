@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MdOutlinePhoneIphone } from "react-icons/md";
 import { MdClose } from "react-icons/md";
 import axios from "axios";
+import { Page } from "../components/page/Page";
 
 function Contact() {
   const [fullName, setFullName] = useState("");
@@ -10,6 +11,8 @@ function Contact() {
   const [message, setMessage] = useState("");
 
   const [messageRes, setMessageRes] = useState("");
+
+  const URL = process.env.REACT_APP_URL_BASE;
 
   function SendMessage(e) {
     e.preventDefault();
@@ -20,7 +23,7 @@ function Contact() {
       message: message,
     };
     axios
-      .post("http://127.0.0.1:8000/api/contact", data)
+      .post(`${URL}/contact`, data)
       .then((response) => {
         setMessageRes(response.data.message);
       })
@@ -31,24 +34,20 @@ function Contact() {
 
   return (
     <div className="bg-dark text-white h-auto ">
-      <div className="contactPage relative w-full h-[70vh]">
-        {messageRes ? (
-          <div className="bg-white fixed flex justify-center items-center z-50 rounded-2xl top-10 right-2 text-green-500 w-52 h-16 font-bold">
-            <p>{messageRes}</p>
-            <p
-              onClick={() => setMessageRes(0)}
-              className="cursor-pointer absolute top-2 text-dark font-bold right-2"
-            >
-              <MdClose />
-            </p>
-          </div>
-        ) : (
-          <></>
-        )}
-        <div className="flex justify-center h-full items-center">
-          <h2 className="font-[400]  text-4xl">Contact Page</h2>
+      <Page title="Contact Page" />
+      {messageRes ? (
+        <div className="bg-white fixed flex justify-center items-center z-50 rounded-2xl top-10 right-2 text-green-500 w-52 h-16 font-bold">
+          <p>{messageRes}</p>
+          <p
+            onClick={() => setMessageRes(0)}
+            className="cursor-pointer absolute top-2 text-dark font-bold right-2"
+          >
+            <MdClose />
+          </p>
         </div>
-      </div>
+      ) : (
+        <></>
+      )}
       <div className="container h-auto py-10">
         <div className="md:flex justify-center p-10">
           <div
@@ -156,3 +155,6 @@ function Contact() {
   );
 }
 export default Contact;
+
+
+
