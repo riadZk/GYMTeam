@@ -1,9 +1,50 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdOutlinePhoneIphone } from "react-icons/md";
-const contact = () => {
+import { MdClose } from "react-icons/md";
+import axios from "axios";
+
+function Contact() {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const [messageRes, setMessageRes] = useState("");
+
+  function SendMessage(e) {
+    e.preventDefault();
+    const data = {
+      fullName: fullName,
+      email: email,
+      subject: subject,
+      message: message,
+    };
+    axios
+      .post("http://127.0.0.1:8000/api/contact", data)
+      .then((response) => {
+        setMessageRes(response.data.message);
+      })
+      .catch((error) => {
+        console.error("Error sending message:", error);
+      });
+  }
+
   return (
     <div className="bg-dark text-white h-auto ">
-      <div className="contactPage w-full h-[70vh]">
+      <div className="contactPage relative w-full h-[70vh]">
+        {messageRes ? (
+          <div className="bg-white fixed flex justify-center items-center z-50 rounded-2xl top-10 right-2 text-green-500 w-52 h-16 font-bold">
+            <p>{messageRes}</p>
+            <p
+              onClick={() => setMessageRes(0)}
+              className="cursor-pointer absolute top-2 text-dark font-bold right-2"
+            >
+              <MdClose />
+            </p>
+          </div>
+        ) : (
+          <></>
+        )}
         <div className="flex justify-center h-full items-center">
           <h2 className="font-[400]  text-4xl">Contact Page</h2>
         </div>
@@ -20,7 +61,7 @@ const contact = () => {
               Talk to us
             </h2>
             <div className="flex flex-col bg-sliderBg text-light py-3 px-10 rounded-lg place-items-center ">
-              <i class="ri-mail-send-fill" style={{ fontSize: "1.5rem" }}></i>
+              <i className="ri-mail-send-fill" style={{ fontSize: "1.5rem" }}></i>
               <span className="font-bold">Email</span>
               <p className="text-lg font-[500]">riadzakaria48@gmail.com</p>
             </div>
@@ -30,7 +71,7 @@ const contact = () => {
               <p className="text-lg font-[500] ">06 05 33 78 23</p>
             </div>
             <div className="flex flex-col bg-sliderBg text-light py-3 px-10 rounded-lg place-items-center ">
-              <i class="ri-map-pin-2-line" style={{ fontSize: "1.5rem" }}></i>
+              <i className="ri-map-pin-2-line" style={{ fontSize: "1.5rem" }}></i>
               <span className="font-bold">location</span>
               <p className="text-lg font-[500] ">Morocco Casablanca Maarif</p>
             </div>
@@ -41,9 +82,10 @@ const contact = () => {
               data-aos="fade-left"
               data-aos-delay="50"
               data-aos-duration="2500"
+              onSubmit={SendMessage}
             >
               <h2 className="font-[400] text-center text-white text-[1.5rem] mb-5 ">
-              How can we help you ?
+                How can we help you ?
               </h2>
               <div className="mb-5">
                 <input
@@ -51,6 +93,7 @@ const contact = () => {
                   placeholder="Your Name"
                   className="w-full p-3 rounded-lg text-black  border-[.2px] border-black"
                   name="user_name"
+                  onChange={(e) => setFullName(e.target.value)}
                   required
                 />
               </div>
@@ -60,6 +103,7 @@ const contact = () => {
                   placeholder="Your email"
                   className="w-full p-3 rounded-lg text-black border-[.2px] border-black"
                   name="user_email"
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
@@ -68,6 +112,7 @@ const contact = () => {
                   type="text"
                   placeholder="Subject"
                   className="w-full p-3 font-[500] rounded-lg text-black border-[.2px] border-black"
+                  onChange={(e) => setSubject(e.target.value)}
                   required
                 />
               </div>
@@ -78,6 +123,7 @@ const contact = () => {
                   rows={3}
                   placeholder="Your Message"
                   className="w-full p-3 border-[.2px] text-black border-black rounded-lg"
+                  onChange={(e) => setMessage(e.target.value)}
                   required
                 />
               </div>
@@ -108,5 +154,5 @@ const contact = () => {
       </div>
     </div>
   );
-};
-export default contact;
+}
+export default Contact;

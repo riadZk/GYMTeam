@@ -1,14 +1,29 @@
-import React from "react";
-import fitnessActivities from "../data/fitnessActivities";
-
+import React, { useEffect, useState } from "react";
+// import fitnessActivities from "../data/fitnessActivities";
+import axios from "axios";
 
 const Classes = () => {
-  const [selectedClass, setSelectedClass] = React.useState("Fitness");
-
-
+  const [fitnessActivities, setFitnessActivities] = useState([])
+  const [selectedClass, setSelectedClass] = useState("Fitness");
+  const [data, setData] = useState([]);
   const selectedClassData = fitnessActivities.find(
     (classe) => classe.name === selectedClass
   );
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://127.0.0.1:8000/api/classe");
+        setFitnessActivities(response.data.data);
+      } catch (error) {
+        console.error("Error sending message:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
   return (
     <div className="w-full h-auto text-light bg-dark">
       <div className="contactPage w-full h-[70vh]">
@@ -16,7 +31,11 @@ const Classes = () => {
           <h2 className="font-[400]  text-4xl">Classes Page</h2>
         </div>
       </div>
-      <div className="w-full h-auto">
+          {
+            selectedClassData ? 
+            <>
+
+            <div className="w-full h-auto">
         <div className="flex justify-between p-4 md:p-6 md:flex-row flex-col-reverse">
           <div className="w-full md:w-2/3">
             <h1 className="text-2xl font-bold mb-3">GROUP FITNESS CLASSES</h1>
@@ -42,7 +61,7 @@ const Classes = () => {
           <div className="w-full md:w-1/2">
             <p className="text-para mb-1">{selectedClassData.description}</p>
             <ul className="md:pl-4 pl-2 mb-10 list-disc list-inside">
-              {selectedClassData.benefits.map((classe, index) => (
+              {JSON.parse(selectedClassData.benefits).map((classe, index) => (
                 <li key={index} className="text-para">
                   {classe}
                 </li>
@@ -59,6 +78,10 @@ const Classes = () => {
           </div>
         </div>
       </div>
+            </>
+          : <>
+          <p>Loading...</p> 
+          </>}
     </div>
   );
 };
