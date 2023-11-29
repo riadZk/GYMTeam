@@ -8,7 +8,6 @@ export const Login = () => {
     const URL = process.env.REACT_APP_URL_BASE;
     
     const [token, setToken] = useState(null);
-    const [userInfo, setUserInfo] = useState(null);
     
     async function login(e) {
         e.preventDefault();
@@ -20,7 +19,6 @@ export const Login = () => {
             const response = await axios.post(`${URL}/login`, data)
             console.log(response);
             const authToken = response.data.data;
-
             setToken(authToken);
             localStorage.setItem('authToken', authToken);
 
@@ -28,24 +26,6 @@ export const Login = () => {
             console.error("Error sending message:");
         }
     }
-    const token2 = localStorage.getItem('authToken');
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`${URL}/profile`, {
-                    headers: {
-                        Authorization: `Bearer ${token2}`,
-                    },
-                });
-                const user = response.data.data.name;
-                setUserInfo(user);
-            } catch (error) {
-                console.error("You are not Login:");
-            }
-        };
-        fetchData();
-    },[]);
     return (
         <div className='flex flex-col justify-center w-1/2 h-full items-center gap-10'>
             <div className='text-center'>

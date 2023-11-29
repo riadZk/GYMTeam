@@ -7,8 +7,9 @@ import Classes from "./pages/Classes";
 // import { Register } from "./components/register/Register";
 import { Auth } from "./pages/Auth";
 import { Context } from "./context/context";
-function App() {
 
+
+function App() {
   return (
     <Context >
       <div className="App">
