@@ -27,7 +27,7 @@ class AuthController extends Controller
         $validator = Validator::make($input, [
             "name" => "required|string|max:20",
             "email" => "required|string|unique:users,email",
-            "password" => "required|string"
+            "password" => "required|min:8"
         ]);
 
         if ($validator->fails()) {
@@ -42,8 +42,6 @@ class AuthController extends Controller
 
         return $this->apiResponse($token, true, 'login is successfully.', 201);
     }
-
-
 
     /**
      * login
@@ -68,12 +66,13 @@ class AuthController extends Controller
 
     public function profile()
     {
-        return $this->apiResponse(auth()->user(), true, 'OK', 200);
+        return $this->apiResponse(auth()->user(), true, 'successfully', 200);
     }
 
     public function logout()
     {
         $user = Auth::user();
+
         $user->tokens()->delete();
 
         return response()->json([

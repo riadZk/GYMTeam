@@ -3,13 +3,13 @@ import { GymContext } from '../../context/context'
 export const Register = () => {
     const {handleAuth} = useContext(GymContext)
     return (
-        <div className='flex flex-col justify-center w-1/2 h-full items-center gap-10'>
+        <div className='flex flex-col justify-center w-full md:w-1/2 h-full items-center gap-10'>
             <div className='text-center'>
                 <h1 className='text-link text-4xl font-bold mb-1'>Register now</h1>
                 <p className='text-gray-400'>Let's get connected</p>
             </div>
             <form
-                className="md:w-2/3 w-full px-2 md:px-0"
+                className="w-2/3 max-[532px]:w-full px-2 md:px-0"
                 data-aos="fade-left"
                 data-aos-delay="50"
                 data-aos-duration="2500"
