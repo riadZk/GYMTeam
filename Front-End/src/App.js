@@ -8,7 +8,6 @@ import Classes from "./pages/Classes";
 import { Auth } from "./pages/Auth";
 import { Context } from "./context/context";
 
-
 function App() {
   return (
     <Context >
