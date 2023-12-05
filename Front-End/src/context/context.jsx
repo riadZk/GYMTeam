@@ -7,9 +7,9 @@ export const Context = (props) => {
     const [darkMode, setDarkMode] = useState(false);
     const [auth, setAuth] = useState(true)
 
-    const handleModeChange = (e) => {
+    const handleModeChange = (event) => {
         setDarkMode(
-            e.target.checked
+            event.target.checked
         )
     };
     const handleAuth = (e) => {
