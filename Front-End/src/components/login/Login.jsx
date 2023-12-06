@@ -15,14 +15,16 @@ export const Login = () => {
         email: '',
         password: '',
     }
-    
-    const formik = useFormik({
-        initialValues,
-        validationSchema:ValidationLogin,
-        onSubmit: async (values) => {
+    console.log(initialValues)
+
+        const handleSubmit = async (e) => {
+            e.preventDefault();
+           const data = {
+            email:email,
+            password:password
+           }
             try {
-                const response = await axios.post(`${URL}/login`, values);
-                console.log(values)
+                const response = await axios.post(`${URL}/login`, data);
                 console.log(response.data.data)
                 const authToken = response.data.data;
                 localStorage.setItem('authToken', authToken);
@@ -31,9 +33,8 @@ export const Login = () => {
             } catch (error) {
                 console.error('Error sending message');
             }
-        },
-    });
-
+        }
+    
     return (
         <div className='flex flex-col justify-center w-full md:w-1/2 h-full items-center gap-10'>
             <div className='text-center'>
@@ -41,7 +42,8 @@ export const Login = () => {
                 <p className='text-gray-400'>Welcome back! Please enter your details.</p>
             </div>
             <form className='w-2/3 max-[532px]:w-full px-2 md:px-0' 
-                  onSubmit={formik.handleSubmit}>
+                  onSubmit={handleSubmit}
+                  >
                 <div>
                     <div className='mb-5'>
                         <label className='text-light font-bold'>Email</label>
@@ -49,11 +51,9 @@ export const Login = () => {
                             type='text'
                             placeholder='Enter your email'
                             className='w-full p-3 rounded-lg text-black border-[.2px] border-black'
-                            {...formik.getFieldProps('email')}
+
                         />
-                        {formik.errors.email && formik.touched.email && (
-                            <div className='text-red-500'>{formik.errors.email}</div>
-                        )}
+                          
                     </div>
                     <div className='mb-5'>
                         <label className='text-light font-bold'>Password</label>
@@ -61,11 +61,10 @@ export const Login = () => {
                             type='password'
                             placeholder='Enter your passwordl'
                             className='w-full p-3 rounded-lg text-black border-[.2px] border-black'
-                            {...formik.getFieldProps('password')}
+
                         />
-                        {formik.errors.password && formik.touched.password && (
-                            <div className='text-red-500'>{formik.errors.password}</div>
-                        )}
+
+
                     </div>
                     <div className='mb-5 flex justify-between items-center max-[320px]:flex-col text-[15px]'>
                         <div className='flex gap-2 '>

@@ -1,7 +1,39 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { GymContext } from '../../context/context'
+import { useNavigate } from 'react-router-dom'
+import { ValidationRegister } from './ValidationRegister'
+import axios from 'axios'
+import { useFormik } from 'formik'
 export const Register = () => {
     const {handleAuth} = useContext(GymContext)
+    
+    const URL = process.env.REACT_APP_URL_BASE;
+    const navigate = useNavigate('');
+
+    const initialValues = {
+        name:'',
+        email: '',
+        password: '',
+    }
+    
+    const formik = useFormik({
+        initialValues,
+        validationSchema:ValidationRegister,
+        onSubmit: async (values) => {
+            try {
+                const response = await axios.post(`${URL}/register`, values);
+                console.log(values)
+                console.log(response.data.data)
+                const authToken = response.data.data;
+                localStorage.setItem('authToken', authToken);
+                navigate('/');
+                window.location.reload(true);
+            } catch (error) {
+                console.error('Error sending message');
+            }
+        },
+    });
+
     return (
         <div className='flex flex-col justify-center w-full md:w-1/2 h-full items-center gap-10'>
             <div className='text-center'>
@@ -13,7 +45,7 @@ export const Register = () => {
                 data-aos="fade-left"
                 data-aos-delay="50"
                 data-aos-duration="2500"
-                onSubmit
+                onSubmit={formik.handleSubmit}
             >
                 <div className="mb-3">
                     <label className='text-light font-bold'>Name</label>
@@ -21,20 +53,19 @@ export const Register = () => {
                         type="Name"
                         placeholder="Enter your Name"
                         className="w-full p-3 rounded-lg text-black border-[.2px] border-black"
-                        name="user_name"
-                        // onChange={(e) => setEmail(e.target.value)}
+                        name="name"
+                        {...formik.getFieldProps('name')}
                         required
                     />
                 </div>
                 <div className="mb-3">
                     <label className='text-light font-bold'>Email</label>
                     <input
-                        type="email"
+                        type="text"
                         placeholder="Enter your email"
                         className="w-full p-3 rounded-lg text-black border-[.2px] border-black"
-                        name="user_name"
-                        // onChange={(e) => setEmail(e.target.value)}
-                        required
+                        name="email"
+                        {...formik.getFieldProps('email')}
                     />
                 </div>
                 <div className="mb-3">
@@ -43,9 +74,8 @@ export const Register = () => {
                         type="Password"
                         placeholder="Enter your passwordl"
                         className="w-full p-3 rounded-lg text-black border-[.2px] border-black"
-                        name="user_email"
-                        // onChange={(e) => setEmail(e.target.value)}
-                        required
+                        name="password"
+                        {...formik.getFieldProps('password')}
                     />
                 </div>
                 <div className='flex gap-2 my-3 text-[15px]'>
@@ -57,7 +87,7 @@ export const Register = () => {
                         type="submit"
                         className="w-full p-3 rounded-lg text-light bg-link font-bold"
                     >
-                        Login
+                        Sign Up
                     </button>
                 </div>
             </form>

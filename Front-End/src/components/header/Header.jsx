@@ -45,7 +45,9 @@ const Nav = () => {
           </Link>
         </div>
         <div
-          className={`flex flex-col md:flex-row bg-dark md:bg-transparent justify-center w-full md:w-auto gap-4 items-center right-1 md:static fixed duration-500 ease-linear z-40 ${!open ? "top-[-400px]" : "top-[0px] py-10"
+          className={`flex flex-col md:flex-row bg-dark md:bg-transparent 
+          justify-center w-full md:w-auto gap-4 items-center right-1 md:static 
+          fixed duration-500 ease-linear z-40 ${!open ? "top-[-400px]" : "top-[0px] py-10"
             }`}
         >
           <ul className=" gap-5 font-[600] text-[16px] flex flex-col md:flex-row">
