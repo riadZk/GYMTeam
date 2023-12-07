@@ -10,6 +10,9 @@ export const Login = () => {
     const { handleAuth } = useContext(GymContext);
     const URL = process.env.REACT_APP_URL_BASE;
     const navigate = useNavigate('');
+    
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState('');
 
     const initialValues = {
         email: '',
@@ -51,7 +54,7 @@ export const Login = () => {
                             type='text'
                             placeholder='Enter your email'
                             className='w-full p-3 rounded-lg text-black border-[.2px] border-black'
-
+                            onChange={(e)=> setEmail(e.target.value)}
                         />
                           
                     </div>
@@ -61,7 +64,7 @@ export const Login = () => {
                             type='password'
                             placeholder='Enter your passwordl'
                             className='w-full p-3 rounded-lg text-black border-[.2px] border-black'
-
+                            onChange={(e)=> setPassword(e.target.value)}
                         />
 
 
@@ -90,7 +93,6 @@ export const Login = () => {
             <div className='flex items-center flex-row justify-center text-[15px] max-[320px]:flex-col font-bold gap-1'>
                 <p className='text-para'>Don’t have an account ? </p>
                 <button onClick={handleAuth} className='text-link '>
-                    {' '}
                     Sign up for free!
                 </button>
             </div>
