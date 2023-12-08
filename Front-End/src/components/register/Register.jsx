@@ -3,36 +3,32 @@ import { GymContext } from '../../context/context'
 import { useNavigate } from 'react-router-dom'
 import { ValidationRegister } from './ValidationRegister'
 import axios from 'axios'
-import { useFormik } from 'formik'
 export const Register = () => {
-    const {handleAuth} = useContext(GymContext)
-    
+
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const { handleAuth } = useContext(GymContext)
+
     const URL = process.env.REACT_APP_URL_BASE;
     const navigate = useNavigate('');
 
-    const initialValues = {
-        name:'',
-        email: '',
-        password: '',
+
+
+    const handleSubmit = async (values) => {
+        try {
+            const response = await axios.post(`${URL}/register`, values);
+            console.log(values)
+            console.log(response.data.data)
+            const authToken = response.data.data;
+            localStorage.setItem('authToken', authToken);
+            navigate('/');
+            window.location.reload(true);
+        } catch (error) {
+            console.error('Error sending message');
+        }
     }
-    
-    const formik = useFormik({
-        initialValues,
-        validationSchema:ValidationRegister,
-        onSubmit: async (values) => {
-            try {
-                const response = await axios.post(`${URL}/register`, values);
-                console.log(values)
-                console.log(response.data.data)
-                const authToken = response.data.data;
-                localStorage.setItem('authToken', authToken);
-                navigate('/');
-                window.location.reload(true);
-            } catch (error) {
-                console.error('Error sending message');
-            }
-        },
-    });
 
     return (
         <div className='flex flex-col justify-center w-full md:w-1/2 h-full items-center gap-10'>
@@ -45,7 +41,7 @@ export const Register = () => {
                 data-aos="fade-left"
                 data-aos-delay="50"
                 data-aos-duration="2500"
-                onSubmit={formik.handleSubmit}
+                onSubmit={handleSubmit}
             >
                 <div className="mb-3">
                     <label className='text-light font-bold'>Name</label>
@@ -54,7 +50,7 @@ export const Register = () => {
                         placeholder="Enter your Name"
                         className="w-full p-3 rounded-lg text-black border-[.2px] border-black"
                         name="name"
-                        {...formik.getFieldProps('name')}
+                        onChange={(e) => setName(e.target.value)}
                         required
                     />
                 </div>
@@ -65,7 +61,8 @@ export const Register = () => {
                         placeholder="Enter your email"
                         className="w-full p-3 rounded-lg text-black border-[.2px] border-black"
                         name="email"
-                        {...formik.getFieldProps('email')}
+                        onChange={(e) => setEmail(e.target.value)}
+
                     />
                 </div>
                 <div className="mb-3">
@@ -75,7 +72,7 @@ export const Register = () => {
                         placeholder="Enter your passwordl"
                         className="w-full p-3 rounded-lg text-black border-[.2px] border-black"
                         name="password"
-                        {...formik.getFieldProps('password')}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
                 <div className='flex gap-2 my-3 text-[15px]'>
