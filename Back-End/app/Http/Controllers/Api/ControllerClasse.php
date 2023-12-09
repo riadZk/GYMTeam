@@ -8,6 +8,8 @@ use App\Models\Classe;
 
 class ControllerClasse extends Controller
 {
+        use Response;
+
     /**
      * Display a listing of the resource.
      *
@@ -17,12 +19,12 @@ class ControllerClasse extends Controller
     {
         $classes = Classe::select('name','title','body','description','benefits','image','instructors')->get();
 
-        return response()->json([
-            'data' => $classes,
-            'message' => 'All Classes',
-            'succes' => true,
+        return apiResponse(
+            $classes,
+            true,
+            'All Classes',
             201
-        ]);
+        );
 
     }
 
