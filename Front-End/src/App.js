@@ -7,6 +7,7 @@ import Classes from "./pages/Classes";
 // import { Register } from "./components/register/Register";
 import { Auth } from "./pages/Auth";
 import { Context } from "./context/context";
+import { Fetchdata } from "./components/login/Fetchdata";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/classes" element={<Classes />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/fetchData" element={<Fetchdata />} />
         </Routes>
       </div>
     </Context>
