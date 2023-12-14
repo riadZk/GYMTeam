@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from 'react'
+import React, { useContext, useState } from 'react'
 import { GymContext } from '../../context/context';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';

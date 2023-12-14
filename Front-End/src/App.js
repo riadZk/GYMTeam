@@ -8,6 +8,7 @@ import Classes from "./pages/Classes";
 import { Auth } from "./pages/Auth";
 import { Context } from "./context/context";
 import { Fetchdata } from "./components/login/Fetchdata";
+import { Footer } from "./components/footer/Footer";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
           <Route path="/fetchData" element={<Fetchdata />} />
         </Routes>
       </div>
+
+      <Footer />
     </Context>
   );
 }

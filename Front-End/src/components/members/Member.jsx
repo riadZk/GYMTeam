@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 export const Member = () => {
   return (
-    <div className="h-screen w-full p-6">
+    <div className="h-auto w-full p-6">
       <div className="relative my-10">
         <h1 className="text-4xl font-bold pt-2">
           What Our Member <br /> Say About Us ?
@@ -43,8 +43,8 @@ export const Member = () => {
                       <img src={Etoile} width={"100px"} alt=""></img>
                     </div>
                     <p className="text-para text-[15px]">
-                      “ Join this fitness member, the best choice that I’ve.
-                      They’re very professional and give you suggestion about
+                      “ Join this fitness member, the best choice that I've.
+                      They're very professional and give you suggestion about
                       what food and nutrition that you can eat”
                     </p>
                     <div className="flex gap-2 items-center">
@@ -68,8 +68,8 @@ export const Member = () => {
                       <img src={Etoile} width={"100px"} alt=""></img>
                     </div>
                     <p className="text-para text-[15px]">
-                      “ Join this fitness member, the best choice that I’ve.
-                      They’re very professional and give you suggestion about
+                      “ Join this fitness member, the best choice that I've.
+                      They're very professional and give you suggestion about
                       what food and nutrition that you can eat”
                     </p>
                     <div className="flex gap-2 items-center">
