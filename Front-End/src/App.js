@@ -1,3 +1,4 @@
+import React , {useEffect} from "react";
 import Header from "./components/header/Header";
 import Main from "./pages/Main";
 import Contact from "./pages/Contact";
@@ -7,10 +8,15 @@ import Classes from "./pages/Classes";
 // import { Register } from "./components/register/Register";
 import { Auth } from "./pages/Auth";
 import { Context } from "./context/context";
-import { Fetchdata } from "./components/login/Fetchdata";
 import { Footer } from "./components/footer/Footer";
+import Aos from "aos"
+import 'aos/dist/aos.css';
 
 function App() {
+
+  useEffect(() => {
+    Aos.init();
+  });
   return (
     <Context >
       <div className="App">
@@ -22,7 +28,6 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/classes" element={<Classes />} />
           <Route path="/auth" element={<Auth />} />
-          <Route path="/fetchData" element={<Fetchdata />} />
         </Routes>
       </div>
 

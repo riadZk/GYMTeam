@@ -12,7 +12,9 @@ import "swiper/css/navigation";
 export const Member = () => {
   return (
     <div className="h-auto w-full p-6">
-      <div className="relative my-10">
+      <div className="relative my-10" 
+        data-aos="fade-right"
+        data-aos-duration="1500">
         <h1 className="text-4xl font-bold pt-2">
           What Our Member <br /> Say About Us ?
         </h1>

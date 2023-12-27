@@ -48,7 +48,7 @@ export const Footer = () => {
               <LinkScroll to='about' spy={true}
                 smooth={true}
                 offset={50}
-                duration={500} className=' cursor-pointer' >About Us</LinkScroll>
+                duration={500} className=' cursor-pointer'>About Us</LinkScroll>
             </li>
             <li>Promos</li>
             <li>News & Blog</li>
@@ -58,7 +58,7 @@ export const Footer = () => {
       </div>
       <div className='w-full px-6 p-4 border-t-[1px] text-para flex justify-between border-para'>
         <p className='flex items-center gap-2'>
-        <FaRegCopyright /> <span>2023 Fitness Center</span>
+          <FaRegCopyright /> <span>2023 Fitness Center</span>
         </p>
         <p>
           <span>Privacy Policy</span>
@@ -66,5 +66,5 @@ export const Footer = () => {
         </p>
       </div>
     </div>
-  )
+  );
 }

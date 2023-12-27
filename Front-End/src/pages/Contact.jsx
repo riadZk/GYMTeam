@@ -52,9 +52,9 @@ function Contact() {
         <div className="md:flex justify-center p-10">
           <div
             className="flex mb-5 flex-col gap-5"
-            data-aos="fade-right"
-            data-aos-delay="50"
-            data-aos-duration="2500"
+            // data-aos="fade-right"
+            // data-aos-delay="50"
+            // data-aos-duration="2500"
           >
             <h2 className="font-[400] text-center text-white text-[1.5rem]">
               Talk to us
@@ -78,9 +78,9 @@ function Contact() {
           <div className="w-full rounded-lg  md:w-1/2 sm:h-[450px] lg:flex justify-center px-4 lg:px-8 ">
             <form
               className="w-full"
-              data-aos="fade-left"
-              data-aos-delay="50"
-              data-aos-duration="2500"
+              // data-aos="fade-left"
+              // data-aos-delay="50"
+              // data-aos-duration="2500"
               onSubmit={SendMessage}
             >
               <h2 className="font-[400] text-center text-white text-[1.5rem] mb-5 ">

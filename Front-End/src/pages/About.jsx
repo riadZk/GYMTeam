@@ -18,18 +18,20 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 
 const About = () => {
-    const imagesSlide = [
-        imageSlideSalle,
-        imageSlideSalle2,
-        imageSlideSalle3,
-        imageSlideSalle4,
-      ];
+  const imagesSlide = [
+    imageSlideSalle,
+    imageSlideSalle2,
+    imageSlideSalle3,
+    imageSlideSalle4,
+  ];
   return (
     <div className="h-auto w-full bg-dark text-light px-6" id="about">
-          <div className="relative mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold pt-2">About Us</h1>
-            <h1 className="fit program">About</h1>
-          </div>
+      <div className="relative mb-16"
+        data-aos="fade-right"
+        data-aos-duration="1500">
+        <h1 className="text-4xl md:text-6xl font-bold pt-2">About Us</h1>
+        <h1 className="fit program">About</h1>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div className="About">
           <div className="flex justify-center h-full items-center font-[500] text-[14px]  flex-col gap-5 text-para">
@@ -67,7 +69,7 @@ const About = () => {
           modules={[Autoplay, Pagination, Navigation]}
           className="mySwiper"
         >
-          {imagesSlide.map((el,index) => (
+          {imagesSlide.map((el, index) => (
             <SwiperSlide key={index}>
               <img src={el} className="imgeSlide" alt="" />
             </SwiperSlide>

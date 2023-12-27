@@ -62,22 +62,22 @@ export const Pricing = () => {
   ];
   return (
     <div className="h-auto w-full bg-dark text-light p-6" id="pricing">
-      <div className="flex flex-col gap-8 justify-center items-center">
+      <div data-aos="fade-right"
+        data-aos-duration="1500" 
+        className="flex flex-col gap-8 justify-center items-center">
         <h1 className="font-bold text-4xl">Our List Packages</h1>
         <div className="bg-light h-auto w-auto p-2 flex gap-1 flex-col sm:flex-row justify-center rounded-lg items-center">
           <button
             onClick={handlClick}
-            className={`px-6 py-3 rounded-lg font-bold ease-in duration-500 ${
-              pricing ? "bg-light text-dark" : "bg-dark text-light"
-            }`}
+            className={`px-6 py-3 rounded-lg font-bold ease-in duration-500 ${pricing ? "bg-light text-dark" : "bg-dark text-light"
+              }`}
           >
             Billed Monthly
           </button>
           <button
             onClick={handlClick}
-            className={` px-6 py-3 rounded-lg font-bold  ease-in duration-500 ${
-              pricing ? "bg-dark text-light" : "bg-light text-dark"
-            }`}
+            className={` px-6 py-3 rounded-lg font-bold  ease-in duration-500 ${pricing ? "bg-dark text-light" : "bg-light text-dark"
+              }`}
           >
             Billed Yearly
           </button>
@@ -87,19 +87,17 @@ export const Pricing = () => {
         {DataPricing.map((item, index) => (
           <div
             key={index}
-            className={`Basic_Package p-3 my-3 w-[80%] ${
-              item.bestOfre ? "bg-link transforPrice" : "bg-sliderBg"
-            }`}
+            className={`Basic_Package p-3 my-3 w-[80%] ${item.bestOfre ? "bg-link transforPrice" : "bg-sliderBg"
+              }`}
           >
             <p className={`${item.bestOfre ? "text-white" : "text-link"}`}>
               {item.category}
             </p>
             <p
-              className={`${
-                item.bestOfre
+              className={`${item.bestOfre
                   ? "block transforPricePARA bg-white w-52 pl-4 h-14"
                   : "hidden"
-              }`}
+                }`}
             >
               best Offre
             </p>
@@ -108,9 +106,8 @@ export const Pricing = () => {
               ${pricing ? item.price * 11 : item.price}{" "}
             </p>
             <p
-              className={`font-[500] text-[14px] mt-2 ${
-                item.bestOfre ? "text-white" : "text-gray-400 "
-              }`}
+              className={`font-[500] text-[14px] mt-2 ${item.bestOfre ? "text-white" : "text-gray-400 "
+                }`}
             >
               per month,bill annualy
             </p>
@@ -125,9 +122,8 @@ export const Pricing = () => {
               </ul>
             </div>
             <button
-              className={`px-6 py-[8px] rounded-lg  tex-light mt-3 ${
-                !item.bestOfre ? "bg-link" : "bg-sliderBg"
-              }`}
+              className={`px-6 py-[8px] rounded-lg  tex-light mt-3 ${!item.bestOfre ? "bg-link" : "bg-sliderBg"
+                }`}
             >
               Register Now
             </button>

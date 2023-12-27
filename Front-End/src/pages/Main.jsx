@@ -5,7 +5,6 @@ import { Pricing } from "./Pricing";
 import Coaches from "./Coaches";
 import Program from "../components/program/Program";
 
-import { FaPlay } from "react-icons/fa6";
 const Main = () => {
   return (
     <div className="h-auto w-full text-light" >
@@ -13,7 +12,10 @@ const Main = () => {
         className="h-screen w-full Unleash"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
       >
-        <div className="flex flex-col justify-center items-start p-7 h-screen w-full md:w-1/2">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="1500"
+          className="flex flex-col justify-center items-start p-7 h-screen w-full md:w-1/2">
           <h1 className="font-bold text-4xl md:text-6xl mb-3">
             Helps for your ideal body fitness
           </h1>
@@ -58,10 +60,10 @@ const Main = () => {
           </div>
         </div>
       </div>
-       <Program />
-        <About />
-        <Pricing />
-        <Coaches />
+      <Program />
+      <About />
+      <Pricing />
+      <Coaches />
     </div>
   );
 };

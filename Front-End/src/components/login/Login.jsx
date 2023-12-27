@@ -7,24 +7,36 @@ export const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const { handleAuth } = useContext(GymContext);
-    
+    const errors = [];
     const URL = process.env.REACT_APP_URL_BASE;
     const navigate = useNavigate('');
 
-    const handleSubmit = async () => {
-        const data = {
-            email: email,
-            password: password
-        }
-        try {
-            const response = await axios.post(`${URL}/login`, data);
-            console.log(response.data.data)
-            const authToken = response.data.data;
-            localStorage.setItem('authToken', authToken);
-            navigate('/');
-            window.location.reload(true);
-        } catch (error) {
-            console.error('Error sending message');
+    // validation 
+    if( email=== "" || !(/^[^\s]+@[^\s].[^\s]+$/.test(email))){
+        errors.push("Email Failed");
+    }
+    if( password === "" ||password.length < 6){
+        errors.push("password Failed");
+
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if(! errors.length > 0){
+            const data = {
+                email: email,
+                password: password
+            }
+            try {
+                const response = await axios.post(`${URL}/login`, data);
+                console.log(response.data.data)
+                const authToken = response.data.data;
+                localStorage.setItem('authToken', authToken);
+                navigate('/');
+                window.location.reload(true);
+            } catch (error) {
+                console.error('Error sending message');
+            }
         }
     }
 
@@ -46,6 +58,7 @@ export const Login = () => {
                             className='w-full p-3 rounded-lg text-black border-[.2px] border-black'
                             onChange={(e) => setEmail(e.target.value)}
                         />
+                        <p className='text-red-500'>{errors[0]}</p>
                     </div>
                     <div className='mb-5'>
                         <label className='text-light font-bold'>Password</label>
@@ -55,6 +68,7 @@ export const Login = () => {
                             className='w-full p-3 rounded-lg text-black border-[.2px] border-black'
                             onChange={(e) => setPassword(e.target.value)}
                         />
+                        <p className='text-red-500'>{errors[1]}</p>
                     </div>
                     <div className='mb-5 flex justify-between items-center max-[320px]:flex-col text-[15px]'>
                         <div className='flex gap-2 '>

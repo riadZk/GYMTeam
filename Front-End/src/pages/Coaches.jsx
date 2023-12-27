@@ -18,7 +18,7 @@ const Coaches = () => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    className:"mySlider",
+    className: "mySlider",
     initialSlide: 0,
     responsive: [
       {
@@ -75,7 +75,10 @@ const Coaches = () => {
   ];
   return (
     <div className="w-full h-auto bg-dark text-light p-6">
-      <div className="relative mb-3">
+      <div
+        className="relative mb-3"
+        data-aos="fade-right"
+        data-aos-duration="1500">
         <h1 className="text-4xl md:text-5xl font-bold pt-2">
           Our Best Coaches
         </h1>
@@ -96,7 +99,7 @@ const Coaches = () => {
                 <div className="flex justify-between">
                   <p>More info</p>
                   <button>
-                   <LuMoveRight />
+                    <LuMoveRight />
                   </button>
                 </div>
               </div>

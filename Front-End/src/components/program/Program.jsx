@@ -9,10 +9,10 @@ import icon4 from '../../assets/nutritions.svg'
 
 const Program = () => {
   const [centerSlideIndex, setCenterSlideIndex] = useState(0);
-  
+
   const settings = {
     dots: true,
-    centerMode:true,
+    centerMode: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -53,25 +53,25 @@ const Program = () => {
   };
   const data = [
     {
-      icon: icon1, 
+      icon: icon1,
       title: "Cardio Strength",
       para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut venenatis, nunc a pretium viverra.",
       class: getSlideClassName(0),
     },
     {
-      icon: icon2, 
+      icon: icon2,
       title: "Cardio Strength",
       para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut venenatis, nunc a pretium viverra.",
       class: getSlideClassName(1),
     },
     {
-      icon: icon3, 
+      icon: icon3,
       title: "Cardio Strength",
       para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut venenatis, nunc a pretium viverra.",
       class: getSlideClassName(2)
     },
     {
-      icon: icon4, 
+      icon: icon4,
       title: "Cardio Strength",
       para: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut venenatis, nunc a pretium viverra.",
       class: getSlideClassName(3),
@@ -79,23 +79,25 @@ const Program = () => {
   ];
   return (
     <div className="w-full h-auto bg-dark text-textNormal px-10 py-20" id="program">
-      <div className="relative">
+      <div className="relative"
+        data-aos="fade-right"
+        data-aos-duration="1500">
         <h1 className="font-bold text-[40px]"> Explore Our Program</h1>
         <p className="fit program">Program</p>
       </div>
       <div>
         <Slider {...settings}>
-        {
-          data.map((item,index) =>
-            <div key={index} className={`bg-sliderBg ${item.class} flex flex-col px-[24px] py-5 mt-10 text-light rounded-lg`}>
-            <div className="icon_slider mb-3">
-              <span><img src={item.icon} width={"30px"} height={"30px"} alt="not found" /></span>
-            </div>
-            <h1 className="text-light font-bold text-lg">{item.title}</h1>
-            <p className="text-para text-sm">{item.para}</p>
-          </div>
-          )
-        }
+          {
+            data.map((item, index) =>
+              <div key={index} className={`bg-sliderBg ${item.class} flex flex-col px-[24px] py-5 mt-10 text-light rounded-lg`}>
+                <div className="icon_slider mb-3">
+                  <span><img src={item.icon} width={"30px"} height={"30px"} alt="not found" /></span>
+                </div>
+                <h1 className="text-light font-bold text-lg">{item.title}</h1>
+                <p className="text-para text-sm">{item.para}</p>
+              </div>
+            )
+          }
         </Slider>
       </div>
     </div>
